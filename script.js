@@ -9,6 +9,7 @@ let myProgressBar = document.getElementById('myProgressBar');
 let gif = document.getElementById('gif');
 let songitem = Array.from(document.getElementsByClassName('songitem'));
 let songItemPlay=document.getElementsByClassName('songItemPlay');
+let totalsongs='11';
 
 let songs = [
     {songName: "Deep End Ameryh", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
@@ -16,11 +17,12 @@ let songs = [
     {songName: "Rise Up - TheFatRat", filePath: "songs/3.mp3", coverPath: "covers/3.jpg"},
     {songName: "Close Your Eyes - KSHMR", filePath: "songs/4.mp3", coverPath: "covers/4.jpg"},
     {songName: "Believers - Alan Walker", filePath: "songs/5.mp3", coverPath: "covers/5.jpg"},
-    {songName: "Let Me Down Slowly", filePath: "songs/2.mp3", coverPath: "covers/6.jpg"},
-    {songName: "1,2,3 - Sofia Reyes", filePath: "songs/2.mp3", coverPath: "covers/7.jpg"},
-    {songName: "Hymn For The Weekend", filePath: "songs/2.mp3", coverPath: "covers/8.jpg"},
-    {songName: "Play - Alan Walker", filePath: "songs/2.mp3", coverPath: "covers/9.jpg"},
-    {songName: "No Roots - Alice Merton", filePath: "songs/4.mp3", coverPath: "covers/10.jpg"},
+    {songName: "Let Me Down Slowly", filePath: "songs/6.mp3", coverPath: "covers/6.jpg"},
+    {songName: "1,2,3 - Sofia Reyes", filePath: "songs/7.mp3", coverPath: "covers/7.jpg"},
+    {songName: "Hymn For The Weekend", filePath: "songs/8.mp3", coverPath: "covers/8.jpg"},
+    {songName: "Play - Alan Walker", filePath: "songs/9.mp3", coverPath: "covers/9.jpg"},
+    {songName: "No Roots - Alice Merton", filePath: "songs/10.mp3", coverPath: "covers/10.jpg"},
+    {songName: "Ishare tere - Tseries", filePath: "songs/11.mp3", coverPath: "covers/11.jpg"},
 ]
 songitem.forEach((element,i)=>{
     
@@ -88,7 +90,7 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
 })
 
 document.getElementById('next').addEventListener('click',()=>{
-    if(songindex==9){
+    if(songindex==totalsongs-1){
         songindex = 0;
     }
     else{
@@ -108,7 +110,7 @@ document.getElementById('next').addEventListener('click',()=>{
 
 document.getElementById('previous').addEventListener('click',()=>{
     if(songindex==0){
-        songindex = 9;
+        songindex = totalsongs-1;
     }
     else{
     songindex-=1;

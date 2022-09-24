@@ -9,6 +9,14 @@ body{
     padding: 0;
 }
 
+.navbuttons{
+    text-decoration: none ;
+    color: white;
+    cursor: pointer;
+}
+.navbuttons:hover{
+    color:aqua;
+}
 nav{
     font-family: 'Ubuntu', sans-serif;
     position: sticky;
