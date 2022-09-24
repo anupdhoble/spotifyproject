@@ -125,3 +125,20 @@ nav ul li{
     transition: opacity 0.4s ease-in;
 }
 
+@media only screen and (max-width: 1100px) {
+    .songinfo{
+        position: absolute;
+        top: 0.6vh;
+        font-family: 'Varela Round',sans-serif;
+    }
+    #mastersongname{
+        margin-left: 10vw;
+    }
+    .songitem{
+        height: 58px;
+    }
+    .songitem i{
+        margin-left: 45px;
+    }
+    
+  }
