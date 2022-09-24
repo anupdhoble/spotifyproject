@@ -8,18 +8,19 @@ let mastersongname=document.getElementById('mastersongname');
 let myProgressBar = document.getElementById('myProgressBar');
 let gif = document.getElementById('gif');
 let songitem = Array.from(document.getElementsByClassName('songitem'));
+let songItemPlay=document.getElementsByClassName('songItemPlay');
 
 let songs = [
-    {songName: "Warriyo - Mortals [NCS Release]", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
-    {songName: "Cielo - Huma-Huma", filePath: "songs/2.mp3", coverPath: "covers/2.jpg"},
-    {songName: "DEAF KEV - Invincible [NCS Release]", filePath: "songs/3.mp3", coverPath: "covers/3.jpg"},
-    {songName: "My Heart [NCS Release]", filePath: "songs/4.mp3", coverPath: "covers/4.jpg"},
-    {songName: "Janji-Heroes-Tonight-NCS-Release", filePath: "songs/5.mp3", coverPath: "covers/5.jpg"},
-    {songName: "Rabba - Salam-e-Ishq", filePath: "songs/2.mp3", coverPath: "covers/6.jpg"},
-    {songName: "Sakhiyaan - Salam-e-Ishq", filePath: "songs/2.mp3", coverPath: "covers/7.jpg"},
-    {songName: "Bhula Dena - Salam-e-Ishq", filePath: "songs/2.mp3", coverPath: "covers/8.jpg"},
-    {songName: "Tumhari Kasam - Salam-e-Ishq", filePath: "songs/2.mp3", coverPath: "covers/9.jpg"},
-    {songName: "Na Jaana - Salam-e-Ishq", filePath: "songs/4.mp3", coverPath: "covers/10.jpg"},
+    {songName: "Deep End Ameryh", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
+    {songName: "Unity - Alan Walker", filePath: "songs/2.mp3", coverPath: "covers/2.jpg"},
+    {songName: "Rise Up - TheFatRat", filePath: "songs/3.mp3", coverPath: "covers/3.jpg"},
+    {songName: "Close Your Eyes - KSHMR", filePath: "songs/4.mp3", coverPath: "covers/4.jpg"},
+    {songName: "Believers - Alan Walker", filePath: "songs/5.mp3", coverPath: "covers/5.jpg"},
+    {songName: "Let Me Down Slowly", filePath: "songs/2.mp3", coverPath: "covers/6.jpg"},
+    {songName: "1,2,3 - Sofia Reyes", filePath: "songs/2.mp3", coverPath: "covers/7.jpg"},
+    {songName: "Hymn For The Weekend", filePath: "songs/2.mp3", coverPath: "covers/8.jpg"},
+    {songName: "Play - Alan Walker", filePath: "songs/2.mp3", coverPath: "covers/9.jpg"},
+    {songName: "No Roots - Alice Merton", filePath: "songs/4.mp3", coverPath: "covers/10.jpg"},
 ]
 songitem.forEach((element,i)=>{
     
@@ -65,6 +66,12 @@ const makeAllPlays = ()=>{
 }
 Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
     element.addEventListener('click',(e)=>{
+        // if(songItemPlay.classList == "fa-solid songItemPlay fa-2x fa-pause"){
+        //     makeAllPlays();
+        //     audioElement.pause();
+        //     masterPlay.classList.remove('fa-pause-circle');
+        //     masterPlay.classList.add('fa-play-circle');
+        // }
         makeAllPlays();
         songindex = parseInt(e.target.id);
         e.target.classList.remove('fa-play');
@@ -94,6 +101,7 @@ document.getElementById('next').addEventListener('click',()=>{
     mastersongname.innerText = songs[songindex].songName;
     audioElement.currentTime= 0;
     audioElement.play();
+    gif.style.opacity =1;
     masterPlay.classList.remove('fa-play-circle');
     masterPlay.classList.add('fa-pause-circle');
 })
@@ -112,6 +120,7 @@ document.getElementById('previous').addEventListener('click',()=>{
     mastersongname.innerText = songs[songindex].songName;
     audioElement.currentTime= 0;
     audioElement.play();
+    gif.style.opacity =1;
     masterPlay.classList.remove('fa-play-circle');
     masterPlay.classList.add('fa-pause-circle');
 })
