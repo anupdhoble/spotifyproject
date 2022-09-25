@@ -1,7 +1,11 @@
 console.log("Welcome to Spotify");
+console.log("A fun project to test my skills. \nAll rights of songs and logos are reserverd with respective parties.\nWe respect your copyrights and would love to here out issues(if any).");
+console.log('Made by :- Anup Dhoble \nInstagram:- @anupdhoble15' );
+console.log("Report any issues:- anupdhoble15@gmail.com")
 
 //Initailize variables
 let songindex =0;
+let i=-1; //for pausing from song list
 let audioElement = new Audio('songs/1.mp3');
 let masterPlay = document.getElementById('masterplay');
 let mastersongname=document.getElementById('mastersongname');
@@ -39,6 +43,9 @@ masterPlay.addEventListener('click',()=>{
         masterPlay.classList.remove('fa-play-circle');
         masterPlay.classList.add('fa-pause-circle');
         gif.style.opacity =1;
+        console.log('Play from mastercontrol initiated....');
+        document.getElementById(songindex).classList.remove('fa-play');
+        document.getElementById(songindex).classList.add('fa-pause');
     }
     else{
         audioElement.pause();
@@ -46,11 +53,12 @@ masterPlay.addEventListener('click',()=>{
         masterPlay.classList.add('fa-play-circle');
         gif.style.opacity =0;
         makeAllPlays();
+        console.log('Pause from mastercontrol initiated....');
     }
 })
 //Listen to events
 audioElement.addEventListener('timeupdate',()=>{
-    console.log('timeupdate');
+    
     //Update Seekbar
     let progress = parseInt((audioElement.currentTime/audioElement.duration)*100);
     myProgressBar.value=progress;
@@ -68,12 +76,27 @@ const makeAllPlays = ()=>{
 }
 Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
     element.addEventListener('click',(e)=>{
-        // if(songItemPlay.classList == "fa-solid songItemPlay fa-2x fa-pause"){
-        //     makeAllPlays();
-        //     audioElement.pause();
-        //     masterPlay.classList.remove('fa-pause-circle');
-        //     masterPlay.classList.add('fa-play-circle');
-        // }
+         if(element.classList == "fa-solid songItemPlay fa-2x fa-pause"){
+            makeAllPlays();
+            audioElement.pause();
+            masterPlay.classList.remove('fa-pause-circle');
+            masterPlay.classList.add('fa-play-circle');
+            i=element;
+            gif.style.opacity =0;
+            console.log('Pause from song list initiated....');
+           }
+        else if(element.classList == "fa-solid songItemPlay fa-2x fa-play"&&i==element){
+            audioElement.play();
+            gif.style.opacity =1;
+            element.classList.remove('fa-play');
+            element.classList.add('fa-pause');
+            masterPlay.classList.remove('fa-play-circle');
+            masterPlay.classList.add('fa-pause-circle');
+            console.log('Play from song list(after pausing same song) initiated....');
+            i=-1;
+        }
+        else{
+            i=-1;
         makeAllPlays();
         songindex = parseInt(e.target.id);
         e.target.classList.remove('fa-play');
@@ -85,7 +108,8 @@ Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
         gif.style.opacity =1;
         masterPlay.classList.remove('fa-play-circle');
         masterPlay.classList.add('fa-pause-circle');
-    
+        console.log('Play from song list initiated....');
+        }
     })
 })
 
@@ -106,6 +130,9 @@ document.getElementById('next').addEventListener('click',()=>{
     gif.style.opacity =1;
     masterPlay.classList.remove('fa-play-circle');
     masterPlay.classList.add('fa-pause-circle');
+    document.getElementById(songindex).classList.remove('fa-play');
+    document.getElementById(songindex).classList.add('fa-pause');
+    console.log('Next from mastercontrol initiated.....');
 })
 
 document.getElementById('previous').addEventListener('click',()=>{
@@ -125,4 +152,31 @@ document.getElementById('previous').addEventListener('click',()=>{
     gif.style.opacity =1;
     masterPlay.classList.remove('fa-play-circle');
     masterPlay.classList.add('fa-pause-circle');
+    document.getElementById(songindex).classList.remove('fa-play');
+    document.getElementById(songindex).classList.add('fa-pause');
+    console.log('Previous from master control initiated....');
+})
+
+//Play next song after end of one 
+
+audioElement.addEventListener('ended',()=>{
+    if(songindex==totalsongs-1){
+        songindex = 0;
+    }
+    else{
+    songindex+=1;
+    }
+    //
+    makeAllPlays();
+    //
+    audioElement.src=`songs/${songindex+1}.mp3`;
+    mastersongname.innerText = songs[songindex].songName;
+    audioElement.currentTime= 0;
+    audioElement.play();
+    gif.style.opacity =1;
+    masterPlay.classList.remove('fa-play-circle');
+    masterPlay.classList.add('fa-pause-circle');
+    console.log('Current song ended,next song initiated....'); 
+    document.getElementById(songindex).classList.remove('fa-play');
+    document.getElementById(songindex).classList.add('fa-pause');
 })
