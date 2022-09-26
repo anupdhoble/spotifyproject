@@ -13,7 +13,7 @@ let myProgressBar = document.getElementById('myProgressBar');
 let gif = document.getElementById('gif');
 let songitem = Array.from(document.getElementsByClassName('songitem'));
 let songItemPlay=document.getElementsByClassName('songItemPlay');
-let totalsongs='11';
+let totalsongs='14';
 
 let songs = [
     {songName: "Deep End Ameryh", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
@@ -26,7 +26,10 @@ let songs = [
     {songName: "Hymn For The Weekend", filePath: "songs/8.mp3", coverPath: "covers/8.jpg"},
     {songName: "Play - Alan Walker", filePath: "songs/9.mp3", coverPath: "covers/9.jpg"},
     {songName: "No Roots - Alice Merton", filePath: "songs/10.mp3", coverPath: "covers/10.jpg"},
-    {songName: "Ishare tere - Tseries", filePath: "songs/11.mp3", coverPath: "covers/11.jpg"},
+    {songName: "Ishare tere - TSeries", filePath: "songs/11.mp3", coverPath: "covers/11.jpg"},
+    {songName: "Sakhiyaan - White Hill Music", filePath: "songs/12.mp3", coverPath: "covers/12.jpg"},
+    {songName: "The Drum - Alan Walker", filePath: "songs/13.mp3", coverPath: "covers/13.jpg"},
+    {songName: "We Don't Talk Anymore", filePath: "songs/14.mp3", coverPath: "covers/14.jpg"},
 ]
 songitem.forEach((element,i)=>{
     
