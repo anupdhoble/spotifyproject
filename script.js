@@ -13,10 +13,10 @@ let myProgressBar = document.getElementById('myProgressBar');
 let gif = document.getElementById('gif');
 let songitem = Array.from(document.getElementsByClassName('songitem'));
 let songItemPlay=document.getElementsByClassName('songItemPlay');
-let totalsongs='14';
+let totalsongs='15';
 
 let songs = [
-    {songName: "Deep End Ameryh", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
+    {songName: "Excuses - AP Dhillon", filePath: "songs/1.mp3", coverPath: "covers/1.jpg"},
     {songName: "Unity - Alan Walker", filePath: "songs/2.mp3", coverPath: "covers/2.jpg"},
     {songName: "Rise Up - TheFatRat", filePath: "songs/3.mp3", coverPath: "covers/3.jpg"},
     {songName: "Close Your Eyes - KSHMR", filePath: "songs/4.mp3", coverPath: "covers/4.jpg"},
@@ -30,6 +30,7 @@ let songs = [
     {songName: "Sakhiyaan - White Hill Music", filePath: "songs/12.mp3", coverPath: "covers/12.jpg"},
     {songName: "The Drum - Alan Walker", filePath: "songs/13.mp3", coverPath: "covers/13.jpg"},
     {songName: "We Don't Talk Anymore", filePath: "songs/14.mp3", coverPath: "covers/14.jpg"},
+    {songName: "Deep End Ameryh", filePath: "songs/15.mp3", coverPath: "covers/15.jpg"},
 ]
 songitem.forEach((element,i)=>{
     
